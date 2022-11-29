@@ -76,3 +76,9 @@ function star(k) {
             }
     }
 }
+
+function mshow() {
+    document.getElementById("giffty").style.opacity = 1
+}
+
+setTimeout(mshow, 15000)

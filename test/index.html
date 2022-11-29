@@ -8,6 +8,7 @@
     <title>bruh</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/normalize.css" class="normalize" />
+    <link rel="stylesheet" href="../plugins/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -17,7 +18,7 @@
         <section class="header">
             <main>
                 <div class="gift" id="giffty">
-                    <img class="pngss" src="./img/download.png" alt="sdas" />
+                    <img class="pngss" src="./img/download.png" alt="sdas" id="pngtime" />
                 </div>
                 <div class="main">
                     <h3 class="pumpedupkicks">ФУТБОЛКИ С ПРИНТАМИ</h3>
@@ -252,11 +253,18 @@
             <img class="pct" src="./img/images.png" alt="#" />
         </div>
     </div>
+    <a href="#" class="link">Hover this link</a>
     <div id="text1" class="sssss"></div>
     <script src="../script.js"></script>
+    <script src="../plugins/lightzoom.js"></script>
+    <script type="text/javascript">
+        jQuery('.lightzoom').lightzoom({
+            speed: 400,
+            viewTitle: true
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 </body>
 
 </html>
-
-
-<a href="#" class="link">Hover this link</a>
