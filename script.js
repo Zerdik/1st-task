@@ -82,3 +82,11 @@ function mshow() {
 }
 
 setTimeout(mshow, 15000)
+
+function check() {
+
+    let name = document.getElementById("name")
+    let lname = document.getElementById("last-name")
+    let mail = document.getElementById("email")
+    let tephone = document.getElementById("tel")
+}
