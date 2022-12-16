@@ -26,6 +26,7 @@
                     <div class="price">499 <sup>руб.</sup></div>
                     <div class="queston">ПОЧЕМУ ТАК ДЁШЕВО?</div>
                 </div>
+
                 <div class="ads">
                     <figure class="1stadd">
                         <img src="./img/sale.png" class="sale" height="100" width="140" alt="sale" />
@@ -49,54 +50,68 @@
                 <h2 class="T-S__title__text">ФУТБОЛКИ</h2>
                 <p class="T-S__title__descr">100% хлопок</p>
             </div>
-            <ul class="T-S__list">
-                <li class="T-S__list__item">
-                    <img src="./img/sss.jpg" alt="" />
-                    <div class="T-S__list__item-text">
-                        <div class="text">
-                            <h5>Футболка</h5>
-                            <p class="T-S__list__item-price">499 P</p>
-                            <a href="#" class="T-S__btn"> Добавить в заказ? </a>
+
+            <div class="gallery">
+
+                <div class="div">
+                    <img src="./image/left.PNG" alt="">
+                </div>
+
+                <ul class="T-S__list">
+                    <li class="T-S__list__item">
+                        <img src="./img/sss.jpg" alt="" />
+                        <div class="T-S__list__item-text">
+                            <div class="text">
+                                <h5>Футболка</h5>
+                                <p class="T-S__list__item-price">499 P</p>
+                                <a href="#" class="T-S__btn"> Добавить в заказ? </a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="T-S__list__item">
-                    <img src="./img/sss.jpg" alt="" />
-                    <div class="T-S__list__item-text">
-                        <div class="text">
-                            <h5>Футболка</h5>
-                            <p id="jsbut" class="T-S__list__item-price">499 P</p>
-                            <a id="jsbut2" href="#" class="T-S__btn" onmouseover="onEnter()">
-                                Добавить в заказ?
-                            </a>
+                    </li>
+                    <li class="T-S__list__item">
+                        <img src="./img/sss.jpg" alt="" />
+                        <div class="T-S__list__item-text">
+                            <div class="text">
+                                <h5>Футболка</h5>
+                                <p id="jsbut" class="T-S__list__item-price">499 P</p>
+                                <a id="jsbut2" href="#" class="T-S__btn" onmouseover="onEnter()">
+                                    Добавить в заказ?
+                                </a>
+                            </div>
                         </div>
+                    </li>
+
+                    <div class="div">
+                        <img src="./image/left.PNG" alt="">
                     </div>
-                </li>
-                <li class="T-S__list__item">
-                    <img src="./img/sss.jpg" alt="" />
-                    <div class="T-S__list__item-text">
-                        <div class="text">
-                            <h5>Футболка</h5>
-                            <p class="T-S__list__item-price">499 P</p>
-                            <a href="#" class="T-S__btn" onmouseover="onEnter()">
-                                Добавить в заказ?
-                            </a>
+    
+                    <li class="T-S__list__item">
+                        <img src="./img/sss.jpg" alt="" />
+                        <div class="T-S__list__item-text">
+                            <div class="text">
+                                <h5>Футболка</h5>
+                                <p class="T-S__list__item-price">499 P</p>
+                                <a href="#" class="T-S__btn" onmouseover="onEnter()">
+                                    Добавить в заказ?
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="T-S__list__item">
-                    <img src="./img/sss.jpg" alt="" />
-                    <div class="T-S__list__item-text">
-                        <div class="text">
-                            <h5 class="text__descr">Футболка</h5>
-                            <p class="T-S__list__item-price">499 P</p>
-                            <a href="#" class="T-S__btn" onmouseover="onEnter()">
-                                Добавить в заказ?
-                            </a>
+                    </li>
+                    <li class="T-S__list__item">
+                        <img src="./img/sss.jpg" alt="" />
+                        <div class="T-S__list__item-text">
+                            <div class="text">
+                                <h5 class="text__descr">Футболка</h5>
+                                <p class="T-S__list__item-price">499 P</p>
+                                <a href="#" class="T-S__btn" onmouseover="onEnter()">
+                                    Добавить в заказ?
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
+            
         </section>
         <section class="size">
             <div class="stxt-size">
@@ -228,7 +243,8 @@
                     <br />
                     <div class="pay" style="color: rgb(18, 212, 18)">Оплата онлайн</div>
                     <hr />
-                    <button class="form__button">Перейти к заказу</button>
+                    <button class="form__button" type="button" onclick="check()">Перейти к заказу</button>
+                    <span class="error"></span>
                 </form>
             </div>
             <div id="mymodal" class="modal">

@@ -85,8 +85,23 @@ setTimeout(mshow, 15000)
 
 function check() {
 
-    let name = document.getElementById("name")
-    let lname = document.getElementById("last-name")
-    let mail = document.getElementById("email")
-    let tephone = document.getElementById("tel")
+    let name = document.getElementById("name").value
+    let lname = document.getElementById("last-name").value
+    let mail = document.getElementById("email").value
+    let tephone = document.getElementById("tel").value
+    if (name == " " || name == "") {
+        document.getElementById("error").innerHTML = "Введите имя"
+    }
+    if (lname == " " || lname == "") {
+        document.getElementById("error").innerHTML = "Введите фамилию"
+    }
+    if (mail == " " || mail == "") {
+        document.getElementById("error").innerHTML = "Введите почту"
+    }
+    if (tephone == " " || tephone == "") {
+        document.getElementById("error").innerHTML = "Введите номер телефона"
+    }
+    if (mail.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        document.getElementById("error").innerHTML = "введите корректный адрес"
+    }
 }
