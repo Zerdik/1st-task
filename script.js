@@ -47,10 +47,10 @@ function onEnter() {
 var modal = document.getElementById("mymodal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
+btn.onclick = function () {
     modal.style.display = "block";
 }
-span.onclick = function() {
+span.onclick = function () {
     modal.style.display = "none";
 }
 
@@ -104,4 +104,9 @@ function check() {
     if (mail.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
         document.getElementById("error").innerHTML = "введите корректный адрес"
     }
+}
+
+function changePicture() {
+    let futbolkas = ['img/futbol.jpg', 'img/photo.png', 'img/sss.jpg', 'img/photo2.png']
+
 }
