@@ -1,9 +1,11 @@
-var bis = document.getElementsByClassName('T-S__btn');
+var bis = document.getElementsByClassName('T-S__btn');//object
 var dis = document.getElementsByClassName('T-S__list__item-price');
+
 
 function MyFunc() {
     alert('skype: helper\ntelegram: @randomguy228\ntel:8(800)555-35-35')
 }
+
 
 function onEnter() {
     a.style.backgroundColor = "green";
@@ -77,6 +79,7 @@ function star(k) {
     }
 }
 
+
 function mshow() {
     document.getElementById("giffty").style.opacity = 1
 }
@@ -106,7 +109,186 @@ function check() {
     }
 }
 
-function changePicture() {
-    let futbolkas = ['img/futbol.jpg', 'img/photo.png', 'img/sss.jpg', 'img/photo2.png']
+function changePicture(direction) {
+    //           -1              0           1                  2               3
+    let futbolkas = ['./img/fubol.jpg', './img/photo.png', './img/sss.jpg', './img/photo2.png'];
+    let articles = ['yhnmsdf', '8ugbnrv', 'ghvwg2y', 'dghgjwe'];
+
+    let left = document.getElementById('pict-left');
+    let right = document.getElementById('pict-right');
+    let btnLeft = document.getElementById('sw1');
+    let btnRight = document.getElementById('sw2');
+
+    if (direction === 0) {
+        let slicedLeft = left.src.slice(left.src.lastIndexOf('/img/'), left.src.length);
+        slicedLeft = '.' + slicedLeft;
+
+        let idF = futbolkas.indexOf(slicedLeft);
+        idF++;
+        if (idF === futbolkas.length) {
+            idF = 0;
+        }
+        let idR = idF + 1;
+        if (idR === futbolkas.length) {
+            idR = 0;
+        }
+        left.src = futbolkas[idF];
+        right.src = futbolkas[idR];
+        btnLeft.dataset['article'] = articles[idF];
+        btnRight.dataset['article'] = articles[idR];
+    }
+    else {
+        let slicedRight = right.src.slice(right.src.lastIndexOf('/img/'), right.src.length);
+        slicedRight = '.' + slicedRight;
+
+        let idF = futbolkas.indexOf(slicedRight);
+        idF--;
+        if (idF === -1) {
+            idF = futbolkas.length - 1;
+        }
+        let idR = idF - 1;
+        if (idR === -1) {
+            idR = futbolkas.length - 1;
+        }
+        left.src = futbolkas[idR];
+        right.src = futbolkas[idF];
+        btnLeft.dataset['article'] = articles[idR];
+        btnRight.dataset['article'] = articles[idF];
+    }
 
 }
+
+var counter = 0;
+showSlides(0);
+
+function switchSlides(n) {
+    counter += n;
+    showSlides(counter);
+}
+
+function showSlides(n) {
+    let slides = document.getElementsByClassName('slide');
+    let dots = document.getElementsByClassName('dot');
+    counter = n;
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        dots[i].className = "dot";
+    }
+
+    if (counter == slides.length) {
+        counter = 0;
+    }
+    else if (counter < 0) {
+        counter = slides.length - 1;
+    }
+    slides[counter].style.display = "flex";
+    dots[counter].classList.add('dot-active');
+}
+
+const goods = {
+    "dghgjwe": {
+        "name": "Футболка",
+        "image": "./img/photo2.png",
+        "price": 499,
+        "count": 0
+    },
+    "yhnmsdf": {
+        "name": "Футболка",
+        "image": "./img/fubol.jpg",
+        "price": 499,
+        "count": 0
+    },
+    "8ugbnrv": {
+        "name": "Футболка",
+        "image": "./img/photo.png",
+        "price": 499,
+        "count": 0
+    },
+    "ghvwg2y": {
+        "name": "Футболка",
+        "image": "./img/sss.jpg",
+        "price": 499,
+        "count": 0
+    }
+};
+
+var chart = {};
+
+document.addEventListener("click", event => {
+    let article = event.target.dataset['article'];
+    if (article !== undefined) {
+        if (event.target.classList.contains('minus')) {
+            subFromChart(article);
+        }
+        else if (event.target.classList.contains('rampage')) {
+            deleteFromChart(article);
+        }
+        else {
+            if (!chart[article]) {
+                chart[article] = goods[article];
+                addToChart(article);
+            }
+            else {
+                addToChart(article);
+            }
+        }
+        drawChart();
+    }
+
+});
+
+function addToChart(article) {
+    chart[article]["count"]++;
+}
+
+function subFromChart(article) {
+    chart[article]["count"]--;
+    if (chart[article]["count"] == 0) {
+        deleteFromChart(article);
+    }
+}
+
+function deleteFromChart(article) {
+    chart[article]['count'] = 0;
+    delete chart[article];
+}
+
+
+function drawChart() {
+    if (Object.keys(chart).length === 0) {
+        document.getElementById("chart").innerHTML = "<h4 class=\"cart__global__g\">Корзина пуста</h4>";
+        document.getElementById("cart__is").style.display = "block";
+    }
+    else {
+        let out = "<div>";
+        let sum = 0;
+        for (let key in chart) {
+            out += `<img src="${chart[key]['image']}">`;
+            out += `<h5>${chart[key]['name']}</h5>`;
+            out += `<h5>${chart[key]['price']} руб</h5>`;
+            out += `<div style='display: flex;'>`
+            out += `<button class='minus' data-article="${key}">-</button>`;
+            out += `<h5> ` + chart[key]['count'] + ` </h5>`;
+            out += `<button data-article="${key}">+</button>`;
+            out += `<img src="img/rampage.ico" alt="" class='rampage' data-article="${key}">`;
+            out += `</div>`;
+            sum += chart[key]['count'] * chart[key]['price'];
+        }
+        out += `<h2>Всего: ${sum} руб</h2>`;
+        out += "</div>";
+        document.getElementById("chart").innerHTML = out;
+        document.getElementById("cart__is").style.display = "none";
+    }
+
+}
+
+// var arr = ['g', 'o', 'v']
+
+
+
+// function doEven() {
+//     let d = new Date()
+//     alert(d.getHours())
+// }
+
+// doEven()

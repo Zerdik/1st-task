@@ -17,33 +17,44 @@
 
     <header>
         <section class="header">
-            <main>
-                <div class="gift" id="giffty">
-                    <img class="pngss" src="./img/download.png" alt="sdas" id="pngtime" />
+            <main class="slide-show">
+                <div class="slide fade" style="background-image: url(./img/slide/1.jpg);">
+                    <a class="prev" onclick="switchSlides(-1)">&#10094</a>
+                    <div class="slide-text">About</div>
+                    <a class="next" onclick="switchSlides(1)">&#10095</a>
                 </div>
-                <div class="main">
-                    <h3 class="pumpedupkicks">ФУТБОЛКИ С ПРИНТАМИ</h3>
-                    <div class="price">499 <sup>руб.</sup></div>
-                    <div class="queston">ПОЧЕМУ ТАК ДЁШЕВО?</div>
+                <div class="slide fade" style="background-image: url(./img/slide/2.jpg);">
+                    <a class="prev" onclick="switchSlides(-1)">&#10094</a>
+                    <div class="slide-text">Second</div>
+                    <a class="next" onclick="switchSlides(1)">&#10095</a>
+                </div>
+                <div class="slide fade" style="background-image: url(./img/slide/3.jpg);">
+                    <a class="prev" onclick="switchSlides(-1)">&#10094</a>
+                    <div class="slide-text">Third</div>
+                    <a class="next" onclick="switchSlides(1)">&#10095</a>
+                </div>
+                <div class="slide fade" style="background-image: url(./img/slide/4.jpg);">
+                    <a class="prev" onclick="switchSlides(-1)">&#10094</a>
+                    <div class="slide-text">Fourth</div>
+                    <a class="next" onclick="switchSlides(1)">&#10095</a>
+                </div>
+                <div class="slide fade" style="background-image: url(./img/slide/5.jpg);">
+                    <a class="prev" onclick="switchSlides(-1)">&#10094</a>
+                    <div class="slide-text">Fifth</div>
+                    <a class="next" onclick="switchSlides(1)">&#10095</a>
                 </div>
 
-                <div class="ads">
-                    <figure class="1stadd">
-                        <img src="./img/sale.png" class="sale" height="100" width="140" alt="sale" />
-                        <figcaption class="sstf">НИЗКИЕ ЦЕНЫ</figcaption>
-                    </figure>
-                    <figure class="2stadd">
-                        <img src="./img/gruzovik.png" class="car" height="100" width="110" alt="sale" />
-                        <figcaption class="dstf">Доставки по всей России</figcaption>
-                    </figure>
-                    <figure class="3stadd">
-                        <img src="./img/hit.png" class="hit" height="100" width="100" alt="sale" />
-                        <figcaption class="astf">Только хиты</figcaption>
-                    </figure>
+                <div class="slide-switch">
+                    <span class="dot" onclick="showSlides(0)"></span>
+                    <span class="dot" onclick="showSlides(1)"></span>
+                    <span class="dot" onclick="showSlides(2)"></span>
+                    <span class="dot" onclick="showSlides(3)"></span>
+                    <span class="dot" onclick="showSlides(4)"></span>
                 </div>
             </main>
         </section>
     </header>
+
     <div class="container">
         <section class="T-S">
             <div class="T-S__title">
@@ -53,32 +64,34 @@
 
             <div class="gallery">
                 <ul class="T-S__list">
-                    <div class="gallery-arrow">
+                    <div class="gallery-arrow" onclick="changePicture(0)">
                         <img src="./image/left.PNG" alt="">
                     </div>
                     <li class="T-S__list__item">
-                        <img src="./img/fubol.jpg" alt="" style="width: 100%;" />
+                        <img src="img/fubol.jpg" alt="" style="width: 500px; height: 600px;" id="pict-left" />
                         <div class="T-S__list__item-text">
                             <div class="text">
                                 <h5>Футболка</h5>
                                 <p class="T-S__list__item-price">499 P</p>
-                                <a href="#" class="T-S__btn"> Добавить в заказ? </a>
+                                <button id="sw1" class="T-S__btn" data-article="yhnmsdf">
+                                    Добавить в заказ?
+                                </button>
                             </div>
                         </div>
                     </li>
                     <li class="T-S__list__item">
-                        <img src="./img/photo.png" alt="" style="width: 100%;" />
+                        <img src="img/photo.png" alt="" style="width: 500px; height: 600px;" id="pict-right" />
                         <div class="T-S__list__item-text">
                             <div class="text">
                                 <h5>Футболка</h5>
                                 <p id="jsbut" class="T-S__list__item-price">499 P</p>
-                                <a id="jsbut2" href="#" class="T-S__btn" onmouseover="onEnter()">
+                                <button id="sw2" class="T-S__btn" data-article="8ugbnrv">
                                     Добавить в заказ?
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </li>
-                    <div class="gallery-arrow">
+                    <div class="gallery-arrow" onclick="changePicture(1)">
                         <img src="./image/right.PNG" alt="">
                     </div>
                 </ul>
@@ -99,9 +112,9 @@
                                 <h4 class="name">Футболка</h4>
                                 <p class="price">499 P</p>
                                 <div class="addto">
-                                    <a id="Mymdl" href="#" class="addto2" onclick="ShowMod()">
+                                    <button id="Mymdl" class="addto2" data-article="dghgjwe">
                                         Добавить в заказ?
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -192,10 +205,11 @@
         <section class="carting">
             <div class="cart">
                 <h2 class="cart__text">ВАШ ЗАКАЗ</h2>
-                <div class="cart__global">
+                <div class="cart__global" id="chart">
                     <h4 class="cart__global__g">Корзина пуста</h4>
+
                 </div>
-                <p class="cart__is">В корзине пусто!</p>
+                <p class="cart__is" id="cart__is">В корзине пусто!</p>
             </div>
         </section>
         <section class="section-form">
