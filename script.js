@@ -113,11 +113,14 @@ function changePicture(direction) {
     //           -1              0           1                  2               3
     let futbolkas = ['./img/fubol.jpg', './img/photo.png', './img/sss.jpg', './img/photo2.png'];
     let articles = ['yhnmsdf', '8ugbnrv', 'ghvwg2y', 'dghgjwe'];
+    let prices = [554324, 590, 322, 133445];
 
     let left = document.getElementById('pict-left');
     let right = document.getElementById('pict-right');
     let btnLeft = document.getElementById('sw1');
     let btnRight = document.getElementById('sw2');
+    let jsbut = document.getElementById('jsbut');
+    let jsbut1 = document.getElementById('jsbut1');
 
     if (direction === 0) {
         let slicedLeft = left.src.slice(left.src.lastIndexOf('/img/'), left.src.length);
@@ -136,6 +139,8 @@ function changePicture(direction) {
         right.src = futbolkas[idR];
         btnLeft.dataset['article'] = articles[idF];
         btnRight.dataset['article'] = articles[idR];
+        jsbut.innerText = `${prices[idF]} P`;
+        jsbut1.innerText = `${prices[idR]} P`;
     }
     else {
         let slicedRight = right.src.slice(right.src.lastIndexOf('/img/'), right.src.length);
@@ -154,6 +159,8 @@ function changePicture(direction) {
         right.src = futbolkas[idF];
         btnLeft.dataset['article'] = articles[idR];
         btnRight.dataset['article'] = articles[idF];
+        jsbut.innerText = `${prices[idR]} P`;
+        jsbut1.innerText = `${prices[idF]} P`;
     }
 
 }
@@ -189,25 +196,25 @@ const goods = {
     "dghgjwe": {
         "name": "Футболка",
         "image": "./img/photo2.png",
-        "price": 499,
+        "price": 590,
         "count": 0
     },
     "yhnmsdf": {
         "name": "Футболка",
         "image": "./img/fubol.jpg",
-        "price": 499,
+        "price": 322,
         "count": 0
     },
     "8ugbnrv": {
         "name": "Футболка",
         "image": "./img/photo.png",
-        "price": 499,
+        "price": 133445,
         "count": 0
     },
     "ghvwg2y": {
         "name": "Футболка",
         "image": "./img/sss.jpg",
-        "price": 499,
+        "price": 554324,
         "count": 0
     }
 };
