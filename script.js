@@ -1,4 +1,4 @@
-var bis = document.getElementsByClassName('T-S__btn');//object
+var bis = document.getElementsByClassName('T-S__btn'); //object
 var dis = document.getElementsByClassName('T-S__list__item-price');
 
 
@@ -49,10 +49,10 @@ function onEnter() {
 var modal = document.getElementById("mymodal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
-btn.onclick = function () {
+btn.onclick = function() {
     modal.style.display = "block";
 }
-span.onclick = function () {
+span.onclick = function() {
     modal.style.display = "none";
 }
 
@@ -113,7 +113,8 @@ function changePicture(direction) {
     //           -1              0           1                  2               3
     let futbolkas = ['./img/fubol.jpg', './img/photo.png', './img/sss.jpg', './img/photo2.png'];
     let articles = ['yhnmsdf', '8ugbnrv', 'ghvwg2y', 'dghgjwe'];
-    let prices = [554324, 590, 322, 133445];
+    let prices = [322, 133445, 554324, 590];
+    let names = ["Снежок", "Черныш", "Серый", "Голубь"]
 
     let left = document.getElementById('pict-left');
     let right = document.getElementById('pict-right');
@@ -121,6 +122,8 @@ function changePicture(direction) {
     let btnRight = document.getElementById('sw2');
     let jsbut = document.getElementById('jsbut');
     let jsbut1 = document.getElementById('jsbut1');
+    let justname = document.getElementById("justname")
+    let jastname = document.getElementById("jastname")
 
     if (direction === 0) {
         let slicedLeft = left.src.slice(left.src.lastIndexOf('/img/'), left.src.length);
@@ -141,8 +144,9 @@ function changePicture(direction) {
         btnRight.dataset['article'] = articles[idR];
         jsbut.innerText = `${prices[idF]} P`;
         jsbut1.innerText = `${prices[idR]} P`;
-    }
-    else {
+        justname.innerText = `${names[idF]}`;
+        jastname.innerText = `${names[idR]}`;
+    } else {
         let slicedRight = right.src.slice(right.src.lastIndexOf('/img/'), right.src.length);
         slicedRight = '.' + slicedRight;
 
@@ -161,6 +165,8 @@ function changePicture(direction) {
         btnRight.dataset['article'] = articles[idF];
         jsbut.innerText = `${prices[idR]} P`;
         jsbut1.innerText = `${prices[idF]} P`;
+        justname.innerText = `${names[idR]}`;
+        jastname.innerText = `${names[idF]}`;
     }
 
 }
@@ -184,8 +190,7 @@ function showSlides(n) {
 
     if (counter == slides.length) {
         counter = 0;
-    }
-    else if (counter < 0) {
+    } else if (counter < 0) {
         counter = slides.length - 1;
     }
     slides[counter].style.display = "flex";
@@ -193,12 +198,6 @@ function showSlides(n) {
 }
 
 const goods = {
-    "dghgjwe": {
-        "name": "Футболка",
-        "image": "./img/photo2.png",
-        "price": 590,
-        "count": 0
-    },
     "yhnmsdf": {
         "name": "Футболка",
         "image": "./img/fubol.jpg",
@@ -216,6 +215,12 @@ const goods = {
         "image": "./img/sss.jpg",
         "price": 554324,
         "count": 0
+    },
+    "dghgjwe": {
+        "name": "Футболка",
+        "image": "./img/photo2.png",
+        "price": 590,
+        "count": 0
     }
 };
 
@@ -226,16 +231,13 @@ document.addEventListener("click", event => {
     if (article !== undefined) {
         if (event.target.classList.contains('minus')) {
             subFromChart(article);
-        }
-        else if (event.target.classList.contains('rampage')) {
+        } else if (event.target.classList.contains('rampage')) {
             deleteFromChart(article);
-        }
-        else {
+        } else {
             if (!chart[article]) {
                 chart[article] = goods[article];
                 addToChart(article);
-            }
-            else {
+            } else {
                 addToChart(article);
             }
         }
@@ -265,8 +267,7 @@ function drawChart() {
     if (Object.keys(chart).length === 0) {
         document.getElementById("chart").innerHTML = "<h4 class=\"cart__global__g\">Корзина пуста</h4>";
         document.getElementById("cart__is").style.display = "block";
-    }
-    else {
+    } else {
         let out = "<div>";
         let sum = 0;
         for (let key in chart) {
