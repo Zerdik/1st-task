@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bruh</title>
+    <link rel="shortcut icon" href="./image/left.PNG" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/normalize.css" class="normalize" />
     <link rel="stylesheet" href="../plugins/style.css">
@@ -201,102 +202,61 @@
                 <h2 class="cart__text">ВАШ ЗАКАЗ</h2>
                 <div class="cart__global" id="chart">
                     <h4 class="cart__global__g">Корзина пуста</h4>
-                    <div class="chart-main">
-                        <div class="chart-pos">
-                            <div class="chart-pos-block">
-                            </div>
-                            <div class="chart-pos-block">
-                            </div>
-                            <div class="chart-pos-block">
-                                <h4>НАИМЕНОВАНИЕ ТОВАРА</h4>
-                            </div>
-                            <div class="chart-pos-block">
-                                <h4>ЦЕНА ЗА ШТ.</h4>
-                            </div>
-                            <div class="chart-pos-block">
-                                <h4>КОЛИЧЕСТВО</h4>
-                            </div>
-                            <div class="chart-pos-block">
-                                <h4>ИТОГО</h4>
-                            </div>
-                        </div>
-                        <div class="chart-pos">
-                            <div class="chart-1ine-block plus32">
-                                <button>&times</button>
-                            </div>
-                            <div class="chart-1ine-block img32">
-                                <a href="./img/photo2.png" class="lightzoom">
-                                    <img src="./img/photo2.png" alt="Футболка">
-                                </a>
-                            </div>
-                            <div class="chart-1ine-block name32">
-                                <div class="names">1</div>
-                            </div>
-                            <div class="chart-1ine-block pos32">
-                                <div class="priceas">499р, и мы в расчёте</div>
-                            </div>
-                            <div class="chart-1ine-block kol32">
-                                <button onclick="counter(-1)">-</button>
-                                <input type="text">
-                                <button onclick="counter(1)">+</button>
-                            </div>
-                            <div class="chart-1ine-block ol32">
-                                <div class="spell">499</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </section>
-        <section class="section-form">
-            <h1 class="form__text">Оформление заказа</h1>
-            <div class="empty">
-                <form action="#" class="border-red">
-                    <label class="form__label">
+    </div>
+    </section>
+    <section class="section-form">
+        <h1 class="form__text">Оформление заказа</h1>
+        <div class="empty">
+            <form action="#" class="border-red">
+                <label class="form__label">
                         <h3 class="tablo">Имя</h3>
                         <input id="name" placeholder="Имя" class="input" type="text" />
                     </label><br />
-                    <label class="form__label">
+                <label class="form__label">
                         <h3 class="tablo">Фамилия</h3>
                         <input id="last-name" placeholder="Фамилия" class="input" type="text" />
                     </label><br />
-                    <label class="form__label">
+                <label class="form__label">
                         <h3 class="tablo">E-Mail</h3>
                         <input id="email" placeholder="Введите почту" class="input" type="email" />
                     </label><br />
-                    <label class="form__label">
+                <label class="form__label">
                         <h3 class="tablo">Телефон</h3>
                         <input id="tel" placeholder="Номер телефона" class="input" type="tel" />
                     </label>
-                    <br />
-                    <div class="pay" style="color: rgb(18, 212, 18)">Оплата онлайн</div>
-                    <hr />
+                <br />
+                <div class="pay" style="color: rgb(18, 212, 18)">Оплата онлайн</div>
+                <hr />
+                <a href="#chart">
                     <button class="form__button" type="button" onclick="check()">Перейти к заказу</button>
-                    <span class="error"></span>
-                </form>
-            </div>
-            <div id="mymodal" class="modal">
-                <div class="modal-content">
-                    <span class="close"> &times; </span>
-                    <h5 class="st">Только сегодня</h5>
-                    <div class="nd">Текст<br />корзине</div>
-                    <h5 class="rd">Подвал</h5>
-                </div>
-            </div>
-            <button id="myBtn">Открыть модальный</button>
-        </section>
-        <section class="otzyv">
-            <div class="stars">
-                <img id="star_f_1" src="./img/star_2.png" alt="#" onmouseenter="star(1)" />
-                <img id="star_f_2" src="./img/star_2.png" alt="#" onmouseenter="star(2)" />
-                <img id="star_f_3" src="./img/star_2.png" alt="#" onmouseenter="star(3)" />
-                <img id="star_f_4" src="./img/star_2.png" alt="#" onmouseenter="star(4)" />
-                <img id="star_f_5" src="./img/star_2.png" alt="#" onmouseenter="star(5)" />
-            </div>
-        </section>
-        <div class="sup" onclick="MyFunc()">
-            <img class="pct" src="./img/images.png" alt="#" />
+                </a>
+                <span class="error"></span>
+            </form>
         </div>
+        <div id="mymodal" class="modal">
+            <div class="modal-content">
+                <span class="close"> &times; </span>
+                <h5 class="st">Только сегодня</h5>
+                <div class="nd">Текст<br />корзине</div>
+                <h5 class="rd">Подвал</h5>
+            </div>
+        </div>
+        <button id="myBtn">Открыть модальный</button>
+    </section>
+    <section class="otzyv">
+        <div class="stars">
+            <img id="star_f_1" src="./img/star_2.png" alt="#" onmouseenter="star(1)" />
+            <img id="star_f_2" src="./img/star_2.png" alt="#" onmouseenter="star(2)" />
+            <img id="star_f_3" src="./img/star_2.png" alt="#" onmouseenter="star(3)" />
+            <img id="star_f_4" src="./img/star_2.png" alt="#" onmouseenter="star(4)" />
+            <img id="star_f_5" src="./img/star_2.png" alt="#" onmouseenter="star(5)" />
+        </div>
+    </section>
+    <div class="sup" onclick="MyFunc()">
+        <img class="pct" src="./img/images.png" alt="#" />
+    </div>
     </div>
     <a href="#" class="link">Hover this link</a>
     <div id="text1" class="sssss"></div>
