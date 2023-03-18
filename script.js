@@ -1,4 +1,4 @@
-var bis = document.getElementsByClassName('T-S__btn'); //object
+var bis = document.getElementsByClassName('T-S__btn');
 var dis = document.getElementsByClassName('T-S__list__item-price');
 
 
@@ -17,34 +17,6 @@ function onEnter() {
     console.log('123')
 }
 
-// function sss() {
-//     a = parseFloat(prompt('Число 1 '));
-//     b = parseFloat(prompt('Число 2 '));
-//     el = document.getElementById('text1');
-//     if (window.getComputedStyle(el).color == "rgb(255, 0, 0)") {
-//         el.style.backgroundColor = "green";
-//     } else
-//         el.style.backgroundColor = "red";
-
-
-//     if (a > b) {
-//         alert("А я говорил что оно будет больше")
-//     } else
-//         alert("А я говорил что оно будет меньше ")
-
-// }
-// console.log('123')
-
-// sss()
-
-
-// function asd() {
-//     for (let i = 0; i < 3; i++) {
-//         alert(i);
-//     }
-// }
-
-// asd()
 
 var modal = document.getElementById("mymodal");
 var btn = document.getElementById("myBtn");
@@ -268,35 +240,62 @@ function drawChart() {
         document.getElementById("chart").innerHTML = "<h4 class=\"cart__global__g\">Корзина пуста</h4>";
         document.getElementById("cart__is").style.display = "block";
     } else {
-        let out = "<div>";
-        let sum = 0;
+        let sum = 0
+        let result = `<div class="chart-pos">
+        <div class="chart-pos-block">
+        </div>
+        <div class="chart-pos-block">
+        </div>
+        <div class="chart-pos-block">
+            <h4>НАИМЕНОВАНИЕ ТОВАРА</h4>
+        </div>
+        <div class="chart-pos-block">
+            <h4>ЦЕНА ЗА ШТ.</h4>
+        </div>
+        <div class="chart-pos-block">
+            <h4>КОЛИЧЕСТВО</h4>
+        </div>
+        <div class="chart-pos-block">
+            <h4>ИТОГО</h4>
+        </div>
+        </div>`;
+        let finalprice = 0
         for (let key in chart) {
-            out += `<img src="${chart[key]['image']}">`;
-            out += `<h5>${chart[key]['name']}</h5>`;
-            out += `<h5>${chart[key]['price']} руб</h5>`;
-            out += `<div style='display: flex;'>`
-            out += `<button class='minus' data-article="${key}">-</button>`;
-            out += `<h5> ` + chart[key]['count'] + ` </h5>`;
-            out += `<button data-article="${key}">+</button>`;
-            out += `<img src="img/rampage.ico" alt="" class='rampage' data-article="${key}">`;
-            out += `</div>`;
-            sum += chart[key]['count'] * chart[key]['price'];
+            let sum = chart[key]['count'] * chart[key]['price']
+
+            result += `<div class="chart-pos">
+                        <div class="chart-1ine-block plus32">
+                            <button class="rampage" data-article="${key}">&times</button>
+                        </div>`;
+            result += `<div class="chart-1ine-block img32">
+                        <a href="${chart[key]['image']}" class='lightzoom'>
+                                <img src="${chart[key]['image']}"/>
+                            </a>
+                        </div>`;
+            result += `<div class="chart-1ine-block name32">
+                            <h4>${chart[key]['name']}</h4>
+                        </div>`;
+            result += `<div class="chart-1ine-block pos32">
+                            <div class="priceas">${chart[key]["price"]}</div>
+                        </div>`;
+            result += `<div class="chart-1ine-block kol32">
+                            <button class='minus' data-article="${key}">-</button>
+                            <input type="text" value = "${chart[key]['count']}">
+                            <button class ='plus' data-article = "${key}">+</button>
+                        </div>`
+            result += `<div class="chart-1ine-block ol32">
+                            <div class="spell">${sum} </div>
+                        </div>
+                        </div>`
+
+            finalprice += sum
         }
-        out += `<h2>Всего: ${sum} руб</h2>`;
-        out += "</div>";
-        document.getElementById("chart").innerHTML = out;
+
+        console.log(finalprice);
+
+        result += `<div class="finalprice"> В   аша итоговая сумма = ${finalprice}</div>`
+        document.getElementById("chart").innerHTML = result;
         document.getElementById("cart__is").style.display = "none";
     }
 
 }
-
-// var arr = ['g', 'o', 'v']
-
-
-
-// function doEven() {
-//     let d = new Date()
-//     alert(d.getHours())
-// }
-
-// doEven()
